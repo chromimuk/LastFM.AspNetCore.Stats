@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastFM.AspNetCore.Stats", "LastFM.AspNetCore.Stats\LastFM.AspNetCore.Stats.csproj", "{C838E327-8425-49DF-847D-7DF6B9B2D556}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LastFM.AspNetCore.Testing", "LastFM.AspNetCore.Testing\LastFM.AspNetCore.Testing.csproj", "{7CD3D972-22ED-4051-A6D5-1B173A03AEFD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C838E327-8425-49DF-847D-7DF6B9B2D556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C838E327-8425-49DF-847D-7DF6B9B2D556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C838E327-8425-49DF-847D-7DF6B9B2D556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C838E327-8425-49DF-847D-7DF6B9B2D556}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD3D972-22ED-4051-A6D5-1B173A03AEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD3D972-22ED-4051-A6D5-1B173A03AEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD3D972-22ED-4051-A6D5-1B173A03AEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD3D972-22ED-4051-A6D5-1B173A03AEFD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {95EDD4C1-D846-4DAD-A9BF-EED45DAF53C2}
+	EndGlobalSection
+EndGlobal
