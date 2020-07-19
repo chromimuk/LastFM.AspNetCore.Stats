@@ -2,6 +2,7 @@
 using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Repositories.Interfaces;
 using LastFM.AspNetCore.Stats.Responses;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats.Repositories
@@ -25,5 +26,24 @@ namespace LastFM.AspNetCore.Stats.Repositories
             LastFMUser user = _mapper.Map<LastFMUser>(getInfosResponse.User);
             return user;
         }
+
+        public async Task<IEnumerable<Track>> GetLovedTracksAsync(string username)
+        {
+            if (username == null)
+                return null;
+
+            string userGetUserInfoURL = $"/2.0/?method=user.getlovedtracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=1";
+            Task<string> data = Query(userGetUserInfoURL);
+            string jsonString = await data;
+
+            GetLovedTracksResponse getInfosResponse = GetLovedTracksResponse.FromJson(jsonString);
+
+            IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(getInfosResponse.LovedTracks.Track);
+            return tracks;
+        }
     }
+
 }
+
+
+

@@ -1,0 +1,30 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+
+namespace LastFM.AspNetCore.Stats.Models
+{
+    public partial class TrackModel
+    {
+        [JsonProperty("artist")]
+        public ArtistModel Artist { get; set; }
+
+        [JsonProperty("mbid")]
+        public Guid Mbid { get; set; }
+
+        [JsonProperty("date")]
+        public DateModel Date { get; set; }
+
+        [JsonProperty("url")]
+        public Uri Url { get; set; }
+
+        [JsonProperty("image")]
+        public IEnumerable<ImageModel> Image { get; set; }
+
+        [JsonProperty("name")]
+        public string Name { get; set; }
+
+        [JsonProperty("streamable")]
+        public StreamableModel Streamable { get; set; }
+    }
+}

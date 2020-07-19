@@ -1,8 +1,8 @@
 using LastFM.AspNetCore.Stats;
 using LastFM.AspNetCore.Stats.Entities;
-using LastFM.AspNetCore.Stats.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Testing.Controller
@@ -32,6 +32,19 @@ namespace LastFM.AspNetCore.Testing.Controller
             Assert.IsNotNull(user.URL);
             Assert.IsNotNull(user.Image);
             Assert.IsNotNull(user.Playcount);
+        }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetLovedTracksAsync()
+        {
+            // Arrange
+
+            // Act
+            List<Track> tracks = (List<Track>)await _controller.GetLovedTracks("chromimuk");
+
+            // Assert
+            Assert.IsNotNull(tracks.First().Artist);
+            Assert.IsNotNull(tracks.First().Name);
         }
     }
 }

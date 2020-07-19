@@ -5,12 +5,16 @@ using System.Linq;
 
 namespace LastFM.AspNetCore.Stats.Profiles
 {
-    public class UserProfile : Profile
+    public class LastFMProfile : Profile
     {
-        public UserProfile()
+        public LastFMProfile()
         {
             CreateMap<UserModel, LastFMUser>()
                 .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.First().Text.ToString()));
+
+            CreateMap<ImageModel, Image>();
+            CreateMap<ArtistModel, Artist>();
+            CreateMap<TrackModel, Track>();
         }
     }
 }
