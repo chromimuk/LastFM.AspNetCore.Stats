@@ -1,10 +1,7 @@
 ﻿using AutoMapper;
 using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace LastFM.AspNetCore.Stats.Profiles
 {

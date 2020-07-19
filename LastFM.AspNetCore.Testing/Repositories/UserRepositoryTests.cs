@@ -2,10 +2,11 @@ using AutoMapper;
 using LastFM.AspNetCore.Stats;
 using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Profiles;
+using LastFM.AspNetCore.Stats.Repositories;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
-namespace LastFM.AspNetCore.Testing
+namespace LastFM.AspNetCore.Testing.Repositories
 {
     [TestClass]
     public class UserRepositoryTests
@@ -24,7 +25,7 @@ namespace LastFM.AspNetCore.Testing
             // Arrange 
 
             // Act
-            LastFMUser user = await _repo.GetInfosAsync();
+            LastFMUser user = await _repo.GetInfosAsync("rj");
 
             // Assert
             Assert.IsNotNull(user.Name);
