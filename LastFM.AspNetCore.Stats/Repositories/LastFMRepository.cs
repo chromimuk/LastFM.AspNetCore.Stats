@@ -11,15 +11,11 @@ namespace LastFM.AspNetCore.Stats.Repositories
         protected const string BaseAddress = "http://ws.audioscrobbler.com/2.0/";
 
         protected readonly IMapper _mapper;
-        protected readonly Entities.LastFMCredentials _lastFMCredentials;
+        protected readonly LastFMCredentials _lastFMCredentials;
 
-        public LastFMRepository(IMapper mapper)
+        public LastFMRepository(LastFMCredentials credentials, IMapper mapper)
         {
-            // TODO: remove from there
-            string apiKey = "";
-            string sharedSecret = "";
-            
-            _lastFMCredentials = new LastFMCredentials(apiKey, sharedSecret);
+            _lastFMCredentials = credentials;
             _mapper = mapper;
         }
 

@@ -9,13 +9,15 @@ namespace LastFM.AspNetCore.Stats
 {
     public class LastFMStatsController
     {
-        private readonly LastFMCredentials _credentials;
         private readonly ILastFMUserService _lastFMUserService;
 
-        public LastFMStatsController(LastFMCredentials credentials, ILastFMUserService lastFMUserService)
+        public LastFMStatsController(LastFMCredentials credentials)
         {
-            _credentials = credentials;
-            _lastFMUserService = lastFMUserService;
+            if (credentials == null)
+                throw new Exception("Invalid credentials");
+
+            LastFMServiceFactory lastFMServiceFactory = new LastFMServiceFactory(credentials);
+            _lastFMUserService = lastFMServiceFactory.GetLastFMUserService();
         }
 
         public Task<LastFMUser> GetUserInfo(string username)

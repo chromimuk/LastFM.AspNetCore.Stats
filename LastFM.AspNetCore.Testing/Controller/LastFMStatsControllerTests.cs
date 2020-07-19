@@ -14,14 +14,9 @@ namespace LastFM.AspNetCore.Testing.Controller
 
         public LastFMStatsControllerTests()
         {
-            LastFMCredentials credentials = new LastFMCredentials("abc", "abc");
-            LastFMUser lastFMUser = new LastFMUser() { Name = "RJ", Image = "cat.jpg", Playcount = int.MaxValue, URL = "localhost" };
-
-            Mock<ILastFMUserService> userService = new Mock<ILastFMUserService>();
-            userService.SetupAllProperties();
-            userService.Setup(x => x.GetInfosAsync("rj")).Returns(Task.FromResult(lastFMUser));
-
-            _controller = new LastFMStatsController(credentials, userService.Object);
+            LastFMCredentialsTestingConfiguration testingConfiguration = new LastFMCredentialsTestingConfiguration();
+            LastFMCredentials credentials = new LastFMCredentials(testingConfiguration.APIKey, testingConfiguration.SharedSecret);
+            _controller = new LastFMStatsController(credentials);
         }
 
         [TestMethod]

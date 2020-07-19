@@ -8,7 +8,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
 {
     public class UserRepository : LastFMRepository, IUserRepository
     {
-        public UserRepository(IMapper mapper) : base(mapper)
+        public UserRepository(LastFMCredentials lastFMCredentials, IMapper mapper) : base(lastFMCredentials, mapper)
         {
         }
 

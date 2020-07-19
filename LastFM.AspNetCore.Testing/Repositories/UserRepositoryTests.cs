@@ -15,8 +15,10 @@ namespace LastFM.AspNetCore.Testing.Repositories
 
         public UserRepositoryTests()
         {
+            LastFMCredentialsTestingConfiguration testingConfiguration = new LastFMCredentialsTestingConfiguration();
+            LastFMCredentials credentials = new LastFMCredentials(testingConfiguration.APIKey, testingConfiguration.SharedSecret);
             IMapper mapper = new Mapper(new MapperConfiguration(cfg => { cfg.AddProfile<UserProfile>(); }));
-            _repo = new UserRepository(mapper);
+            _repo = new UserRepository(credentials, mapper);
         }
         
         [TestMethod]
