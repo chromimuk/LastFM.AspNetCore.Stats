@@ -29,6 +29,5 @@ namespace LastFM.AspNetCore.Stats.Models
 
         [JsonProperty("name")]
         public string Name { get; set; }
-
     }
 }

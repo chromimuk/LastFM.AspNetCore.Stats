@@ -7,7 +7,9 @@ namespace LastFM.AspNetCore.Stats.Entities
         public string APIKey { get; set; }
         public string SharedSecret { get; set; }
 
-        public LastFMCredentials() {}
+        public LastFMCredentials()
+        {
+        }
 
         public LastFMCredentials(string apiKey, string sharedSecret)
         {

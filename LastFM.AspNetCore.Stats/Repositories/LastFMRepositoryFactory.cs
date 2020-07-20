@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Profiles;
-using LastFM.AspNetCore.Stats.Repositories;
 using LastFM.AspNetCore.Stats.Repositories.Interfaces;
 
 namespace LastFM.AspNetCore.Stats.Repositories

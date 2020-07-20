@@ -1,6 +1,5 @@
 ﻿using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Repositories;
-using LastFM.AspNetCore.Stats.Services;
 
 namespace LastFM.AspNetCore.Stats.Services
 {
