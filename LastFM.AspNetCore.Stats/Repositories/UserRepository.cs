@@ -73,6 +73,21 @@ namespace LastFM.AspNetCore.Stats.Repositories
             return albums;
         }
 
+        public async Task<IEnumerable<Artist>> GetTopArtistsAsync(string username)
+        {
+            if (username == null)
+                return null;
+
+            string userGetUserInfoURL = $"/2.0/?method=user.getTopArtists&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10";
+            Task<string> data = Query(userGetUserInfoURL);
+            string jsonString = await data;
+
+            GetTopArtistsResponse response = GetTopArtistsResponse.FromJson(jsonString);
+
+            IEnumerable<Artist> artists = _mapper.Map<IEnumerable<Artist>>(response.TopArtists.Artists);
+            return artists;
+        }
+
     }
 
 }

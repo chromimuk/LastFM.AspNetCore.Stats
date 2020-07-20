@@ -71,5 +71,17 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Assert
             Assert.IsNotNull(albums.First().Artist);
         }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetTopArtists()
+        {
+            // Arrange
+
+            // Act
+            List<Artist> albums = (List<Artist>)await _controller.GetTopArtists("chromimuk");
+
+            // Assert
+            Assert.IsNotNull(albums.First().Name);
+        }
     }
 }

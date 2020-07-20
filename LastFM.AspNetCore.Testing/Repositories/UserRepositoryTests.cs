@@ -64,15 +64,15 @@ namespace LastFM.AspNetCore.Testing.Repositories
         }
 
         [TestMethod]
-        public async Task UserRepositoryTests_GetTopAlbumsAsync()
+        public async Task UserRepositoryTests_GetTopArtistsAsync()
         {
             // Arrange
 
             // Act
-            List<Album> albums = (List<Album>)await _repo.GetTopAlbumsAsync("chromimuk");
+            List<Artist> artists = (List<Artist>)await _repo.GetTopArtistsAsync("chromimuk");
 
             // Assert
-            Assert.IsNotNull(albums.First().Name);
+            Assert.IsNotNull(artists.First().Name);
         }
     }
 }

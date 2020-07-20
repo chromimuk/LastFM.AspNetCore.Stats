@@ -35,6 +35,10 @@ namespace LastFM.AspNetCore.Testing.Services
             IEnumerable<Album> topAlbums = new List<Album>() { new Album() { Name = "TopAlbumName" } };
             userRepository.Setup(x => x.GetTopAlbumsAsync("rj")).Returns(Task.FromResult(topAlbums));
 
+            // GetTopArtistsAsync
+            IEnumerable<Artist> topArtists = new List<Artist>() { new Artist() { Name = "TopArtistName" } };
+            userRepository.Setup(x => x.GetTopArtistsAsync("rj")).Returns(Task.FromResult(topArtists));
+
             _service = new LastFMUserService(userRepository.Object);
         }
 
@@ -89,6 +93,18 @@ namespace LastFM.AspNetCore.Testing.Services
 
             // Assert
             Assert.IsNotNull(albums.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMUserServiceTests_GetTopArtistsAsync()
+        {
+            // Arrange
+
+            // Act
+            List<Artist> artists = (List<Artist>)await _service.GetTopArtistsAsync("rj");
+
+            // Assert
+            Assert.IsNotNull(artists.First().Name);
         }
     }
 }
