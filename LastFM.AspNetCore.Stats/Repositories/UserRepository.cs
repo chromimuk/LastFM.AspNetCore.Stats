@@ -48,7 +48,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
             if (username == null)
                 return null;
 
-            string userGetUserInfoURL = $"/2.0/?method=user.getrecenttracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=1&extended=1";
+            string userGetUserInfoURL = $"/2.0/?method=user.getrecenttracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10&extended=1";
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
@@ -57,6 +57,22 @@ namespace LastFM.AspNetCore.Stats.Repositories
             IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(response.RecentTracks.Tracks);
             return tracks;
         }
+
+        public async Task<IEnumerable<Album>> GetTopAlbumsAsync(string username)
+        {
+            if (username == null)
+                return null;
+
+            string userGetUserInfoURL = $"/2.0/?method=user.getTopAlbums&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10";
+            Task<string> data = Query(userGetUserInfoURL);
+            string jsonString = await data;
+
+            GetTopAlbumsResponse response = GetTopAlbumsResponse.FromJson(jsonString);
+
+            IEnumerable<Album> albums = _mapper.Map<IEnumerable<Album>>(response.TopAlbums.Albums);
+            return albums;
+        }
+
     }
 
 }

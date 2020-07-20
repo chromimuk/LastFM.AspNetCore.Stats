@@ -10,7 +10,7 @@ namespace LastFM.AspNetCore.Stats.Models
         public ArtistModel Artist { get; set; }
 
         [JsonProperty("mbid")]
-        public Guid Mbid { get; set; }
+        public string Mbid { get; set; }
 
         [JsonProperty("date")]
         public DateModel Date { get; set; }

@@ -33,5 +33,10 @@ namespace LastFM.AspNetCore.Stats
         {
             return _lastFMUserService.GetRecentTracksAsync(username);
         }
+
+        public Task<IEnumerable<Album>> GetTopAlbums(string username)
+        {
+            return _lastFMUserService.GetTopAlbumsAsync(username);
+        }
     }
 }

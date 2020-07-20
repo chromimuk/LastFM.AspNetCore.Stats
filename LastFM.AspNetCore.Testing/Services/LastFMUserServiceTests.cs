@@ -23,13 +23,17 @@ namespace LastFM.AspNetCore.Testing.Services
             LastFMUser lastFMUser = new LastFMUser() { Name = "RJ", Image = "cat.jpg", Playcount = int.MaxValue, URL = "localhost" };
             userRepository.Setup(x => x.GetInfosAsync("rj")).Returns(Task.FromResult(lastFMUser));
 
-            // GetLovedTracks
+            // GetLovedTracksAsync
             IEnumerable<Track> lovedTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "LovedArtistName" }, Name = "LovedSongName" } };
             userRepository.Setup(x => x.GetLovedTracksAsync("rj")).Returns(Task.FromResult(lovedTracks));
 
-            // GetLovedTracks
+            // GetRecentTracksAsync
             IEnumerable<Track> recentTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "RecentArtist" }, Name = "RecentSongName" } };
             userRepository.Setup(x => x.GetRecentTracksAsync("rj")).Returns(Task.FromResult(recentTracks));
+
+            // GetTopAlbumsAsync
+            IEnumerable<Album> topAlbums = new List<Album>() { new Album() { Name = "TopAlbumName" } };
+            userRepository.Setup(x => x.GetTopAlbumsAsync("rj")).Returns(Task.FromResult(topAlbums));
 
             _service = new LastFMUserService(userRepository.Object);
         }
@@ -73,6 +77,18 @@ namespace LastFM.AspNetCore.Testing.Services
             // Assert
             Assert.IsNotNull(tracks.First().Artist);
             Assert.IsNotNull(tracks.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMUserServiceTests_GetTopAlbumsAsync()
+        {
+            // Arrange
+
+            // Act
+            List<Album> albums = (List<Album>)await _service.GetTopAlbumsAsync("rj");
+
+            // Assert
+            Assert.IsNotNull(albums.First().Name);
         }
     }
 }
