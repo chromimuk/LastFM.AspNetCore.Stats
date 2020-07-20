@@ -20,7 +20,7 @@ namespace LastFM.AspNetCore.Testing.Controller
         }
 
         [TestMethod]
-        public async Task LastFMStatsControllerTests_GetInfosAsync()
+        public async Task LastFMStatsControllerTests_GetInfos()
         {
             // Arrange
 
@@ -35,12 +35,25 @@ namespace LastFM.AspNetCore.Testing.Controller
         }
 
         [TestMethod]
-        public async Task LastFMStatsControllerTests_GetLovedTracksAsync()
+        public async Task LastFMStatsControllerTests_GetLovedTracks()
         {
             // Arrange
 
             // Act
             List<Track> tracks = (List<Track>)await _controller.GetLovedTracks("chromimuk");
+
+            // Assert
+            Assert.IsNotNull(tracks.First().Artist);
+            Assert.IsNotNull(tracks.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetRecentTracks()
+        {
+            // Arrange
+
+            // Act
+            List<Track> tracks = (List<Track>)await _controller.GetRecentTracks("chromimuk");
 
             // Assert
             Assert.IsNotNull(tracks.First().Artist);

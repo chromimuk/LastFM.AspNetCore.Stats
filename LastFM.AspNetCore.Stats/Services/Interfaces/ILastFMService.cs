@@ -8,5 +8,6 @@ namespace LastFM.AspNetCore.Stats.Services
     {
         Task<LastFMUser> GetInfosAsync(string username);
         Task<IEnumerable<Track>> GetLovedTracksAsync(string username);
+        Task<IEnumerable<Track>> GetRecentTracksAsync(string username);
     }
 }

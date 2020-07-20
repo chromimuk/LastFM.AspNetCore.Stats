@@ -49,5 +49,18 @@ namespace LastFM.AspNetCore.Testing.Repositories
             Assert.IsNotNull(tracks.First().Artist);
             Assert.IsNotNull(tracks.First().Name);
         }
+
+        [TestMethod]
+        public async Task UserRepositoryTests_GetRecentTracksAsync()
+        {
+            // Arrange
+
+            // Act
+            List<Track> tracks = (List<Track>)await _repo.GetRecentTracksAsync("chromimuk");
+
+            // Assert
+            Assert.IsNotNull(tracks.First().Artist);
+            Assert.IsNotNull(tracks.First().Name);
+        }
     }
 }

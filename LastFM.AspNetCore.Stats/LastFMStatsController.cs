@@ -2,7 +2,6 @@
 using LastFM.AspNetCore.Stats.Services;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats
@@ -28,6 +27,11 @@ namespace LastFM.AspNetCore.Stats
         public Task<IEnumerable<Track>> GetLovedTracks(string username)
         {
             return _lastFMUserService.GetLovedTracksAsync(username);
+        }
+
+        public Task<IEnumerable<Track>> GetRecentTracks(string username)
+        {
+            return _lastFMUserService.GetRecentTracksAsync(username);
         }
     }
 }

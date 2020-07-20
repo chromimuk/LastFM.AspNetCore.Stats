@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Entities
 {
-    public partial class LovedTracks
+    public partial class TrackCollection
     {
         [JsonProperty("@attr")]
         public AttrModel Attr { get; set; }
 
         [JsonProperty("track")]
-        public IEnumerable<TrackModel> Track { get; set; }
+        public IEnumerable<TrackModel> Tracks { get; set; }
     }
 }

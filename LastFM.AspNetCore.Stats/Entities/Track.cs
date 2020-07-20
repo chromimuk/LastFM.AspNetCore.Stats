@@ -13,5 +13,7 @@ namespace LastFM.AspNetCore.Stats.Entities
         public IEnumerable<Image> Image { get; set; }
 
         public string Name { get; set; }
+
+        public Album Album { get; set; }
     }
 }

@@ -23,5 +23,10 @@ namespace LastFM.AspNetCore.Stats.Services
         {
             return await _userRepository.GetLovedTracksAsync(username);
         }
+
+        public async Task<IEnumerable<Track>> GetRecentTracksAsync(string username)
+        {
+            return await _userRepository.GetRecentTracksAsync(username);
+        }
     }
 }

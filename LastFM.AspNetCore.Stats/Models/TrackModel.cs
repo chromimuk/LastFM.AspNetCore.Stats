@@ -24,7 +24,7 @@ namespace LastFM.AspNetCore.Stats.Models
         [JsonProperty("name")]
         public string Name { get; set; }
 
-        [JsonProperty("streamable")]
-        public StreamableModel Streamable { get; set; }
+        [JsonProperty("album")]
+        public AlbumModel Album { get; set; }
     }
 }

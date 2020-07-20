@@ -22,8 +22,9 @@ namespace LastFM.AspNetCore.Stats.Repositories
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
-            GetInfosResponse getInfosResponse = GetInfosResponse.FromJson(jsonString);
-            LastFMUser user = _mapper.Map<LastFMUser>(getInfosResponse.User);
+            GetInfosResponse tracks = GetInfosResponse.FromJson(jsonString);
+
+            LastFMUser user = _mapper.Map<LastFMUser>(tracks.User);
             return user;
         }
 
@@ -32,13 +33,28 @@ namespace LastFM.AspNetCore.Stats.Repositories
             if (username == null)
                 return null;
 
-            string userGetUserInfoURL = $"/2.0/?method=user.getlovedtracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=1";
+            string userGetUserInfoURL = $"/2.0/?method=user.getlovedtracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10";
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
-            GetLovedTracksResponse getInfosResponse = GetLovedTracksResponse.FromJson(jsonString);
+            GetLovedTracksResponse response = GetLovedTracksResponse.FromJson(jsonString);
 
-            IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(getInfosResponse.LovedTracks.Track);
+            IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(response.LovedTracks.Tracks);
+            return tracks;
+        }
+
+        public async Task<IEnumerable<Track>> GetRecentTracksAsync(string username)
+        {
+            if (username == null)
+                return null;
+
+            string userGetUserInfoURL = $"/2.0/?method=user.getrecenttracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=1&extended=1";
+            Task<string> data = Query(userGetUserInfoURL);
+            string jsonString = await data;
+
+            GetRecentTracksResponse response = GetRecentTracksResponse.FromJson(jsonString);
+
+            IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(response.RecentTracks.Tracks);
             return tracks;
         }
     }

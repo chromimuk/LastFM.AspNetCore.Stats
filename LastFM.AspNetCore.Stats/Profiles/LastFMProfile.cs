@@ -15,6 +15,7 @@ namespace LastFM.AspNetCore.Stats.Profiles
             CreateMap<ImageModel, Image>();
             CreateMap<ArtistModel, Artist>();
             CreateMap<TrackModel, Track>();
+            CreateMap<AlbumModel, Album>();
         }
     }
 }

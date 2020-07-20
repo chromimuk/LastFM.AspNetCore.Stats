@@ -24,8 +24,12 @@ namespace LastFM.AspNetCore.Testing.Services
             userRepository.Setup(x => x.GetInfosAsync("rj")).Returns(Task.FromResult(lastFMUser));
 
             // GetLovedTracks
-            IEnumerable<Track> tracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "ArtistName" }, Name = "SongName" } };
-            userRepository.Setup(x => x.GetLovedTracksAsync("rj")).Returns(Task.FromResult(tracks));
+            IEnumerable<Track> lovedTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "LovedArtistName" }, Name = "LovedSongName" } };
+            userRepository.Setup(x => x.GetLovedTracksAsync("rj")).Returns(Task.FromResult(lovedTracks));
+
+            // GetLovedTracks
+            IEnumerable<Track> recentTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "RecentArtist" }, Name = "RecentSongName" } };
+            userRepository.Setup(x => x.GetRecentTracksAsync("rj")).Returns(Task.FromResult(recentTracks));
 
             _service = new LastFMUserService(userRepository.Object);
         }
@@ -52,6 +56,19 @@ namespace LastFM.AspNetCore.Testing.Services
 
             // Act
             List<Track> tracks = (List<Track>)await _service.GetLovedTracksAsync("rj");
+
+            // Assert
+            Assert.IsNotNull(tracks.First().Artist);
+            Assert.IsNotNull(tracks.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMUserServiceTests_GetRecentTracksAsync()
+        {
+            // Arrange
+
+            // Act
+            List<Track> tracks = (List<Track>)await _service.GetRecentTracksAsync("rj");
 
             // Assert
             Assert.IsNotNull(tracks.First().Artist);

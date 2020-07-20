@@ -12,6 +12,6 @@ namespace LastFM.AspNetCore.Stats.Models
         public string Name { get; set; }
 
         [JsonProperty("mbid")]
-        public Guid Mbid { get; set; }
+        public string Mbid { get; set; }
     }
 }
