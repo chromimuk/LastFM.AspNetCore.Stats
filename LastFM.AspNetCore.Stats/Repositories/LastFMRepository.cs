@@ -13,7 +13,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
         protected readonly IMapper _mapper;
         protected readonly LastFMCredentials _lastFMCredentials;
 
-        public LastFMRepository(LastFMCredentials credentials, IMapper mapper)
+        protected LastFMRepository(LastFMCredentials credentials, IMapper mapper)
         {
             _lastFMCredentials = credentials;
             _mapper = mapper;

@@ -5,13 +5,11 @@ namespace LastFM.AspNetCore.Stats.Services
 {
     public class LastFMServiceFactory
     {
-        private readonly LastFMCredentials _credentials;
         private readonly LastFMRepositoryFactory _repositoryFactory;
 
         public LastFMServiceFactory(LastFMCredentials credentials)
         {
-            _credentials = credentials;
-            _repositoryFactory = new LastFMRepositoryFactory(_credentials);
+            _repositoryFactory = new LastFMRepositoryFactory(credentials);
         }
 
         public ILastFMUserService GetLastFMUserService()

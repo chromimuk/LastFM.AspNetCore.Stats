@@ -1,6 +1,6 @@
 ﻿using LastFM.AspNetCore.Stats.Entities;
+using LastFM.AspNetCore.Stats.Exceptions;
 using LastFM.AspNetCore.Stats.Services;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -13,7 +13,7 @@ namespace LastFM.AspNetCore.Stats
         public LastFMStatsController(LastFMCredentials credentials)
         {
             if (credentials == null)
-                throw new Exception("Invalid credentials");
+                throw new InvalidCredentialsException();
 
             LastFMServiceFactory lastFMServiceFactory = new LastFMServiceFactory(credentials);
             _lastFMUserService = lastFMServiceFactory.GetLastFMUserService();
