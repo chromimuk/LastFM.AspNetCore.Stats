@@ -15,5 +15,7 @@ namespace LastFM.AspNetCore.Stats.Repositories.Interfaces
         Task<IEnumerable<Album>> GetTopAlbumsAsync(string username);
 
         Task<IEnumerable<Artist>> GetTopArtistsAsync(string username);
+
+        Task<IEnumerable<Track>> GetTopTracksAsync(string username);
     }
 }

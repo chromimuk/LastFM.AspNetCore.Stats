@@ -64,6 +64,18 @@ namespace LastFM.AspNetCore.Testing.Repositories
         }
 
         [TestMethod]
+        public async Task UserRepositoryTests_GetTopAlbumsAsync()
+        {
+            // Arrange
+
+            // Act
+            List<Album> albums = (List<Album>)await _repo.GetTopAlbumsAsync("chromimuk");
+
+            // Assert
+            Assert.IsNotNull(albums.First().Name);
+        }
+
+        [TestMethod]
         public async Task UserRepositoryTests_GetTopArtistsAsync()
         {
             // Arrange
@@ -73,6 +85,18 @@ namespace LastFM.AspNetCore.Testing.Repositories
 
             // Assert
             Assert.IsNotNull(artists.First().Name);
+        }
+
+        [TestMethod]
+        public async Task UserRepositoryTests_GetTopTracks()
+        {
+            // Arrange
+
+            // Act
+            List<Track> tracks = (List<Track>)await _repo.GetTopTracksAsync("chromimuk");
+
+            // Assert
+            Assert.IsNotNull(tracks.First().Name);
         }
     }
 }
