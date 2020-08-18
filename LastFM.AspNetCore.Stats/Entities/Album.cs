@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Entities
 {
@@ -9,7 +8,7 @@ namespace LastFM.AspNetCore.Stats.Entities
 
         public Artist Artist { get; set; }
 
-        public List<Image> Image { get; set; }
+        public Image Image { get; set; }
 
         public long Playcount { get; set; }
 

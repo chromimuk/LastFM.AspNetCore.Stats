@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Entities
 {
@@ -9,7 +8,7 @@ namespace LastFM.AspNetCore.Stats.Entities
 
         public Uri Url { get; set; }
 
-        public IEnumerable<Image> Image { get; set; }
+        public Image Image { get; set; }
 
         public string Name { get; set; }
 

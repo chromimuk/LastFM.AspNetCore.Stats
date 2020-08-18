@@ -6,7 +6,7 @@
 
         public string URL { get; set; }
 
-        public string Image { get; set; }
+        public Image Image { get; set; }
 
         public long Playcount { get; set; }
     }

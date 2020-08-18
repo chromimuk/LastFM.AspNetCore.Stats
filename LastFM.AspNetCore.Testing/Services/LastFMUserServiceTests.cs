@@ -3,6 +3,7 @@ using LastFM.AspNetCore.Stats.Repositories.Interfaces;
 using LastFM.AspNetCore.Stats.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace LastFM.AspNetCore.Testing.Services
             userRepository.SetupAllProperties();
 
             // GetInfosAsync
-            LastFMUser lastFMUser = new LastFMUser() { Name = "RJ", Image = "cat.jpg", Playcount = int.MaxValue, URL = "localhost" };
+            LastFMUser lastFMUser = new LastFMUser() { Name = "RJ", Image = new Image(new Uri("http://chats.fr/cat.jpg")), Playcount = int.MaxValue, URL = "localhost" };
             userRepository.Setup(x => x.GetInfosAsync("rj")).Returns(Task.FromResult(lastFMUser));
 
             // GetLovedTracksAsync

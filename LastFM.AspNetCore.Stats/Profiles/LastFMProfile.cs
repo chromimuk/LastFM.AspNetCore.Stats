@@ -9,13 +9,15 @@ namespace LastFM.AspNetCore.Stats.Profiles
     {
         public LastFMProfile()
         {
-            CreateMap<UserModel, LastFMUser>()
-                .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.First().Text.ToString()));
-
-            CreateMap<ImageModel, Image>();
             CreateMap<ArtistModel, Artist>();
-            CreateMap<TrackModel, Track>();
-            CreateMap<AlbumModel, Album>();
+            CreateMap<UserModel, LastFMUser>()
+                .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.First()));
+            CreateMap<ImageModel, Image>()
+                .ForMember(x => x.Uri, m => m.MapFrom(o => o.Text));
+            CreateMap<TrackModel, Track>()
+                .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.First()));
+            CreateMap<AlbumModel, Album>()
+                .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.First()));
         }
     }
 }

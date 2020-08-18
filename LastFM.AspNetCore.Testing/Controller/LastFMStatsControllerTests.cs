@@ -1,5 +1,6 @@
 using LastFM.AspNetCore.Stats;
 using LastFM.AspNetCore.Stats.Entities;
+using LastFM.AspNetCore.Stats.Exceptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,34 @@ namespace LastFM.AspNetCore.Testing.Controller
             LastFMCredentialsTestingConfiguration testingConfiguration = new LastFMCredentialsTestingConfiguration();
             LastFMCredentials credentials = new LastFMCredentials(testingConfiguration.APIKey, testingConfiguration.SharedSecret);
             _controller = new LastFMStatsController(credentials);
+        }
+
+        [TestMethod]
+        public void LastFMStatsControllerTests_Init()
+        {
+            // Arrange
+            LastFMCredentialsTestingConfiguration testingConfiguration = new LastFMCredentialsTestingConfiguration();
+            LastFMCredentials credentials = new LastFMCredentials(testingConfiguration.APIKey, testingConfiguration.SharedSecret);
+
+            // Act
+            LastFMStatsController controller = new LastFMStatsController(credentials);
+
+            // Assert
+            Assert.IsNotNull(controller);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidCredentialsException))]
+        public void LastFMStatsControllerTests_Init_InvalidCredentials()
+        {
+            // Arrange
+            LastFMCredentials credentials = null;
+
+            // Act
+            LastFMStatsController controller = new LastFMStatsController(credentials);
+
+            // Assert
+            Assert.IsNotNull(controller);
         }
 
         [TestMethod]
