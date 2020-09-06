@@ -7,17 +7,18 @@ namespace LastFM.AspNetCore.Stats.Repositories
 {
     public class LastFMRepositoryFactory
     {
-        private LastFMCredentials _credentials;
-        private IMapper mapper = new Mapper(new MapperConfiguration(cfg => { cfg.AddProfile<LastFMProfile>(); }));
+        private readonly LastFMCredentials _credentials;
+        private readonly IMapper _mapper;
 
         public LastFMRepositoryFactory(LastFMCredentials credentials)
         {
             _credentials = credentials;
+            _mapper = new Mapper(new MapperConfiguration(cfg => { cfg.AddProfile<LastFMProfile>(); }));
         }
 
         public IUserRepository GetUserRepository()
         {
-            return new UserRepository(_credentials, mapper);
+            return new UserRepository(_credentials, _mapper);
         }
     }
 }

@@ -26,23 +26,23 @@ namespace LastFM.AspNetCore.Testing.Services
 
             // GetLovedTracksAsync
             IEnumerable<Track> lovedTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "LovedArtistName" }, Name = "LovedSongName" } };
-            userRepository.Setup(x => x.GetLovedTracksAsync("rj")).Returns(Task.FromResult(lovedTracks));
+            userRepository.Setup(x => x.GetLovedTracksAsync("rj", 10)).Returns(Task.FromResult(lovedTracks));
 
             // GetRecentTracksAsync
             IEnumerable<Track> recentTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "RecentArtist" }, Name = "RecentSongName" } };
-            userRepository.Setup(x => x.GetRecentTracksAsync("rj")).Returns(Task.FromResult(recentTracks));
+            userRepository.Setup(x => x.GetRecentTracksAsync("rj", 10)).Returns(Task.FromResult(recentTracks));
 
             // GetTopAlbumsAsync
             IEnumerable<Album> topAlbums = new List<Album>() { new Album() { Name = "TopAlbumName" } };
-            userRepository.Setup(x => x.GetTopAlbumsAsync("rj")).Returns(Task.FromResult(topAlbums));
+            userRepository.Setup(x => x.GetTopAlbumsAsync("rj", 10)).Returns(Task.FromResult(topAlbums));
 
             // GetTopArtistsAsync
             IEnumerable<Artist> topArtists = new List<Artist>() { new Artist() { Name = "TopArtistName" } };
-            userRepository.Setup(x => x.GetTopArtistsAsync("rj")).Returns(Task.FromResult(topArtists));
+            userRepository.Setup(x => x.GetTopArtistsAsync("rj", 10)).Returns(Task.FromResult(topArtists));
 
             // GetTopArtistsAsync
             IEnumerable<Track> topTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "TopTrackArtist" }, Name = "TopSongName" } };
-            userRepository.Setup(x => x.GetTopTracksAsync("rj")).Returns(Task.FromResult(topTracks));
+            userRepository.Setup(x => x.GetTopTracksAsync("rj", 10)).Returns(Task.FromResult(topTracks));
 
             _service = new LastFMUserService(userRepository.Object);
         }

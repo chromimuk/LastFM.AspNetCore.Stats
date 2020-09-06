@@ -19,29 +19,29 @@ namespace LastFM.AspNetCore.Stats.Services
             return await _userRepository.GetInfosAsync(username);
         }
 
-        public async Task<IEnumerable<Track>> GetLovedTracksAsync(string username)
+        public async Task<IEnumerable<Track>> GetLovedTracksAsync(string username, int limit = 10)
         {
-            return await _userRepository.GetLovedTracksAsync(username);
+            return await _userRepository.GetLovedTracksAsync(username, limit);
         }
 
-        public async Task<IEnumerable<Track>> GetRecentTracksAsync(string username)
+        public async Task<IEnumerable<Track>> GetRecentTracksAsync(string username, int limit = 10)
         {
-            return await _userRepository.GetRecentTracksAsync(username);
+            return await _userRepository.GetRecentTracksAsync(username, limit);
         }
 
-        public async Task<IEnumerable<Album>> GetTopAlbumsAsync(string username)
+        public async Task<IEnumerable<Album>> GetTopAlbumsAsync(string username, int limit = 10)
         {
-            return await _userRepository.GetTopAlbumsAsync(username);
+            return await _userRepository.GetTopAlbumsAsync(username, limit);
         }
 
-        public async Task<IEnumerable<Artist>> GetTopArtistsAsync(string username)
+        public async Task<IEnumerable<Artist>> GetTopArtistsAsync(string username, int limit = 10)
         {
-            return await _userRepository.GetTopArtistsAsync(username);
+            return await _userRepository.GetTopArtistsAsync(username, limit);
         }
 
-        public async Task<IEnumerable<Track>> GetTopTracksAsync(string username)
+        public async Task<IEnumerable<Track>> GetTopTracksAsync(string username, int limit = 10)
         {
-            return await _userRepository.GetTopTracksAsync(username);
+            return await _userRepository.GetTopTracksAsync(username, limit);
         }
     }
 }

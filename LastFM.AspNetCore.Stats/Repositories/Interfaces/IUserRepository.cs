@@ -8,14 +8,14 @@ namespace LastFM.AspNetCore.Stats.Repositories.Interfaces
     {
         Task<LastFMUser> GetInfosAsync(string username);
 
-        Task<IEnumerable<Track>> GetLovedTracksAsync(string username);
+        Task<IEnumerable<Track>> GetLovedTracksAsync(string username, int limit = 10);
 
-        Task<IEnumerable<Track>> GetRecentTracksAsync(string username);
+        Task<IEnumerable<Track>> GetRecentTracksAsync(string username, int limit = 10);
 
-        Task<IEnumerable<Album>> GetTopAlbumsAsync(string username);
+        Task<IEnumerable<Album>> GetTopAlbumsAsync(string username, int limit = 10);
 
-        Task<IEnumerable<Artist>> GetTopArtistsAsync(string username);
+        Task<IEnumerable<Artist>> GetTopArtistsAsync(string username, int limit = 10);
 
-        Task<IEnumerable<Track>> GetTopTracksAsync(string username);
+        Task<IEnumerable<Track>> GetTopTracksAsync(string username, int limit = 10);
     }
 }

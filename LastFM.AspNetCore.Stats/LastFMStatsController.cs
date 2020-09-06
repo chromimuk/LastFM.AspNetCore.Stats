@@ -24,29 +24,29 @@ namespace LastFM.AspNetCore.Stats
             return _lastFMUserService.GetInfosAsync(username);
         }
 
-        public Task<IEnumerable<Track>> GetLovedTracks(string username)
+        public Task<IEnumerable<Track>> GetLovedTracks(string username, int limit = 10)
         {
-            return _lastFMUserService.GetLovedTracksAsync(username);
+            return _lastFMUserService.GetLovedTracksAsync(username, limit);
         }
 
-        public Task<IEnumerable<Track>> GetRecentTracks(string username)
+        public Task<IEnumerable<Track>> GetRecentTracks(string username, int limit = 10)
         {
-            return _lastFMUserService.GetRecentTracksAsync(username);
+            return _lastFMUserService.GetRecentTracksAsync(username, limit);
         }
 
-        public Task<IEnumerable<Album>> GetTopAlbums(string username)
+        public Task<IEnumerable<Album>> GetTopAlbums(string username, int limit = 10)
         {
-            return _lastFMUserService.GetTopAlbumsAsync(username);
+            return _lastFMUserService.GetTopAlbumsAsync(username, limit);
         }
 
-        public Task<IEnumerable<Artist>> GetTopArtists(string username)
+        public Task<IEnumerable<Artist>> GetTopArtists(string username, int limit = 10)
         {
-            return _lastFMUserService.GetTopArtistsAsync(username);
+            return _lastFMUserService.GetTopArtistsAsync(username, limit);
         }
 
-        public Task<IEnumerable<Track>> GetTopTracks(string username)
+        public Task<IEnumerable<Track>> GetTopTracks(string username, int limit = 10)
         {
-            return _lastFMUserService.GetTopTracksAsync(username);
+            return _lastFMUserService.GetTopTracksAsync(username, limit);
         }
     }
 }

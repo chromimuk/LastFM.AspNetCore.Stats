@@ -28,12 +28,12 @@ namespace LastFM.AspNetCore.Stats.Repositories
             return user;
         }
 
-        public async Task<IEnumerable<Track>> GetLovedTracksAsync(string username)
+        public async Task<IEnumerable<Track>> GetLovedTracksAsync(string username, int limit = 10)
         {
             if (username == null)
                 return null;
 
-            string userGetUserInfoURL = $"/2.0/?method=user.getlovedtracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10";
+            string userGetUserInfoURL = $"/2.0/?method=user.getlovedtracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit={limit}";
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
@@ -43,12 +43,12 @@ namespace LastFM.AspNetCore.Stats.Repositories
             return tracks;
         }
 
-        public async Task<IEnumerable<Track>> GetRecentTracksAsync(string username)
+        public async Task<IEnumerable<Track>> GetRecentTracksAsync(string username, int limit = 10)
         {
             if (username == null)
                 return null;
 
-            string userGetUserInfoURL = $"/2.0/?method=user.getrecenttracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10&extended=1";
+            string userGetUserInfoURL = $"/2.0/?method=user.getrecenttracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit={limit}&extended=1";
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
@@ -58,12 +58,12 @@ namespace LastFM.AspNetCore.Stats.Repositories
             return tracks;
         }
 
-        public async Task<IEnumerable<Album>> GetTopAlbumsAsync(string username)
+        public async Task<IEnumerable<Album>> GetTopAlbumsAsync(string username, int limit = 10)
         {
             if (username == null)
                 return null;
 
-            string userGetUserInfoURL = $"/2.0/?method=user.getTopAlbums&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10";
+            string userGetUserInfoURL = $"/2.0/?method=user.getTopAlbums&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit={limit}";
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
@@ -73,12 +73,12 @@ namespace LastFM.AspNetCore.Stats.Repositories
             return albums;
         }
 
-        public async Task<IEnumerable<Artist>> GetTopArtistsAsync(string username)
+        public async Task<IEnumerable<Artist>> GetTopArtistsAsync(string username, int limit = 10)
         {
             if (username == null)
                 return null;
 
-            string userGetUserInfoURL = $"/2.0/?method=user.getTopArtists&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10";
+            string userGetUserInfoURL = $"/2.0/?method=user.getTopArtists&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit={limit}";
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
@@ -88,12 +88,12 @@ namespace LastFM.AspNetCore.Stats.Repositories
             return artists;
         }
 
-        public async Task<IEnumerable<Track>> GetTopTracksAsync(string username)
+        public async Task<IEnumerable<Track>> GetTopTracksAsync(string username, int limit = 10)
         {
             if (username == null)
                 return null;
 
-            string userGetUserInfoURL = $"/2.0/?method=user.getTopTracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit=10";
+            string userGetUserInfoURL = $"/2.0/?method=user.getTopTracks&user={username}&api_key={_lastFMCredentials.APIKey}&format=json&limit={limit}";
             Task<string> data = Query(userGetUserInfoURL);
             string jsonString = await data;
 
