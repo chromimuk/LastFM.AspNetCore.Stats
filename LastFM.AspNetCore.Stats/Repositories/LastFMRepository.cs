@@ -19,20 +19,13 @@ namespace LastFM.AspNetCore.Stats.Repositories
             _mapper = mapper;
         }
 
-        protected async Task<string> Query(string url)
+        protected async Task<LastFMResponse> Query(string url)
         {
             using HttpClient client = new HttpClient { BaseAddress = new Uri(BaseAddress) };
             client.DefaultRequestHeaders.Accept.Clear();
 
             HttpResponseMessage response = await client.GetAsync(url);
-            if (response.IsSuccessStatusCode)
-            {
-                return await response.Content.ReadAsStringAsync();
-            }
-            else
-            {
-                return null;
-            }
+            return new LastFMResponse(response);
         }
     }
 }
