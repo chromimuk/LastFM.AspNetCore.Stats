@@ -4,11 +4,19 @@ using Newtonsoft.Json;
 
 namespace LastFM.AspNetCore.Stats.Responses
 {
-    public partial class GetTopArtistsResponse
+    public class GetTopArtistsResponse
     {
         [JsonProperty("topartists")]
-        public ArtistCollection TopArtists { get; set; }
+        public ArtistModelCollection TopArtists { get; set; }
 
         public static GetTopArtistsResponse FromJson(string json) => JsonConvert.DeserializeObject<GetTopArtistsResponse>(json, Converter.Settings);
+    }
+
+    public class GetArtistResponse
+    {
+        [JsonProperty("artist")]
+        public ArtistModel Artist { get; set; }
+
+        public static GetArtistResponse FromJson(string json) => JsonConvert.DeserializeObject<GetArtistResponse>(json, Converter.Settings);
     }
 }

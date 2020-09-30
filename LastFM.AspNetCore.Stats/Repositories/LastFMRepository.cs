@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using LastFM.AspNetCore.Stats.Entities;
+using LastFM.AspNetCore.Stats.Utils;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;

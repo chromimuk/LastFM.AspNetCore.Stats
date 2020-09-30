@@ -1,10 +1,9 @@
-﻿using LastFM.AspNetCore.Stats.Models;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace LastFM.AspNetCore.Stats.Entities
+namespace LastFM.AspNetCore.Stats.Models
 {
-    public partial class TrackCollection
+    public partial class TrackModelCollection
     {
         [JsonProperty("@attr")]
         public AttrModel Attr { get; set; }

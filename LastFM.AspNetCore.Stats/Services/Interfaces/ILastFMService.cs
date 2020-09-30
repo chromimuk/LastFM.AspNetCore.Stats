@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace LastFM.AspNetCore.Stats.Services
+namespace LastFM.AspNetCore.Stats.Services.Interfaces
 {
     public interface ILastFMUserService
     {

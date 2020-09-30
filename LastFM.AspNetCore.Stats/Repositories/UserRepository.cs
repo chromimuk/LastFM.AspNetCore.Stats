@@ -3,7 +3,7 @@ using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Exceptions;
 using LastFM.AspNetCore.Stats.Repositories.Interfaces;
 using LastFM.AspNetCore.Stats.Responses;
-using System;
+using LastFM.AspNetCore.Stats.Utils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

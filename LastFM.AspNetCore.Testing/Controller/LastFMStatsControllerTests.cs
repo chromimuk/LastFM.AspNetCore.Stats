@@ -1,6 +1,7 @@
 using LastFM.AspNetCore.Stats;
 using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Exceptions;
+using LastFM.AspNetCore.Stats.Utils;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;

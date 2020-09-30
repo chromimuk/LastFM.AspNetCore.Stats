@@ -1,5 +1,4 @@
-﻿using LastFM.AspNetCore.Stats.Models;
-using LastFM.AspNetCore.Stats.Utils;
+﻿using LastFM.AspNetCore.Stats.Utils;
 using Newtonsoft.Json;
 
 namespace LastFM.AspNetCore.Stats.Responses

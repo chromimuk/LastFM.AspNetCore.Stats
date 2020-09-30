@@ -1,5 +1,6 @@
 ﻿using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Repositories.Interfaces;
+using LastFM.AspNetCore.Stats.Services.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

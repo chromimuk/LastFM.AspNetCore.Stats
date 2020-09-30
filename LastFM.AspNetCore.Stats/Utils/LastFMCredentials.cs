@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LastFM.AspNetCore.Stats.Entities
+namespace LastFM.AspNetCore.Stats.Utils
 {
     public class LastFMCredentials
     {
