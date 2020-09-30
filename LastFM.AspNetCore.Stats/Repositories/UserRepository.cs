@@ -3,6 +3,7 @@ using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Exceptions;
 using LastFM.AspNetCore.Stats.Repositories.Interfaces;
 using LastFM.AspNetCore.Stats.Responses;
+using LastFM.AspNetCore.Stats.Responses.User;
 using LastFM.AspNetCore.Stats.Utils;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
                 throw new DataAccessException($"Could not get user info ({error.Message})");
             }
 
-            GetInfosResponse tracks = GetInfosResponse.FromJson(jsonString);
+            GetUserInfosResponse tracks = GetUserInfosResponse.FromJson(jsonString);
             LastFMUser user = _mapper.Map<LastFMUser>(tracks.User);
             return user;
         }

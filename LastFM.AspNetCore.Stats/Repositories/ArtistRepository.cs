@@ -2,6 +2,7 @@
 using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Exceptions;
 using LastFM.AspNetCore.Stats.Responses;
+using LastFM.AspNetCore.Stats.Responses.Artist;
 using LastFM.AspNetCore.Stats.Utils;
 using System.Threading.Tasks;
 
@@ -32,7 +33,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
                 throw new DataAccessException($"Could not get user info ({error.Message})");
             }
 
-            GetArtistResponse artistResponse = GetArtistResponse.FromJson(jsonString);
+            GetArtistInfosResponse artistResponse = GetArtistInfosResponse.FromJson(jsonString);
 
             Artist artist = _mapper.Map<Artist>(artistResponse.Artist);
             return artist;
