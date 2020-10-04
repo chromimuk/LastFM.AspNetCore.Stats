@@ -5,7 +5,6 @@
 # Usage
 
 ## Init
----
 
 ```csharp
 LastFMCredentials credentials = new LastFMCredentials()
@@ -18,10 +17,8 @@ LastFMStatsService lastFMStatsService = new LastFMStatsService(LastFMCredentials
 ```
 
 ## Available methods
----
 
 ### User
----
 
 ```csharp
 Task<LastFMUser> LastFMUser = lastFMStatsService.GetUserInfos(username);
@@ -33,7 +30,6 @@ Task<IEnumerable<Track>> recentTracks = lastFMStatsService.GetUserRecentTracks(u
 ```
 
 ### Artist
----
 
 ```csharp
 Task<Artist> artist = GetArtistInfos(searchedArtist);
