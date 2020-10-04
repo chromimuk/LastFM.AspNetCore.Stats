@@ -17,5 +17,10 @@ namespace LastFM.AspNetCore.Stats.Services
         {
             return new LastFMUserService(_repositoryFactory.GetUserRepository());
         }
+
+        public ILastFMArtistService GetLastFMArtistService()
+        {
+            return new LastFMArtistService(_repositoryFactory.GetArtistRepository());
+        }
     }
 }

@@ -55,7 +55,7 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            LastFMUser user = await _controller.GetUserInfo("rj");
+            LastFMUser user = await _controller.GetUserInfos("rj");
 
             // Assert
             Assert.IsNotNull(user.Name);
@@ -70,7 +70,7 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            List<Track> tracks = (List<Track>)await _controller.GetLovedTracks("chromimuk");
+            List<Track> tracks = (List<Track>)await _controller.GetUserLovedTracks("chromimuk");
 
             // Assert
             Assert.IsNotNull(tracks.First().Artist);
@@ -83,7 +83,7 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            List<Track> tracks = (List<Track>)await _controller.GetRecentTracks("chromimuk");
+            List<Track> tracks = (List<Track>)await _controller.GetUserRecentTracks("chromimuk");
 
             // Assert
             Assert.IsNotNull(tracks.First().Artist);
@@ -96,7 +96,7 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            List<Album> albums = (List<Album>)await _controller.GetTopAlbums("chromimuk");
+            List<Album> albums = (List<Album>)await _controller.GetUserTopAlbums("chromimuk");
 
             // Assert
             Assert.IsNotNull(albums.First().Artist);
@@ -108,7 +108,7 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            List<Artist> albums = (List<Artist>)await _controller.GetTopArtists("chromimuk");
+            List<Artist> albums = (List<Artist>)await _controller.GetUserTopArtists("chromimuk");
 
             // Assert
             Assert.IsNotNull(albums.First().Name);
@@ -120,10 +120,61 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            List<Track> tracks = (List<Track>)await _controller.GetTopTracks("chromimuk");
+            List<Track> tracks = (List<Track>)await _controller.GetUserTopTracks("chromimuk");
 
             // Assert
             Assert.IsNotNull(tracks.First().Artist);
+            Assert.IsNotNull(tracks.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetArtistInfos()
+        {
+            // Arrange
+
+            // Act
+            Artist artist = await _controller.GetArtistInfos("Juniore");
+
+            // Assert
+            Assert.IsNotNull(artist);
+            Assert.IsNotNull(artist.Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetSimilarArtists()
+        {
+            // Arrange
+
+            // Act
+            List<Artist> artists = (List<Artist>)await _controller.GetSimilarArtists("Juniore");
+
+            // Assert
+            Assert.IsNotNull(artists.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetArtistTopAlbums()
+        {
+            // Arrange
+
+            // Act
+            List<Album> albums = (List<Album>)await _controller.GetArtistTopAlbums("Juniore");
+
+            // Assert
+            Assert.IsNotNull(albums);
+            Assert.IsNotNull(albums.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetArtistTopTracks()
+        {
+            // Arrange
+
+            // Act
+            List<Track> tracks = (List<Track>)await _controller.GetArtistTopTracks("Juniore");
+
+            // Assert
+            Assert.IsNotNull(tracks);
             Assert.IsNotNull(tracks.First().Name);
         }
     }
