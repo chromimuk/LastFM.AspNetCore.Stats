@@ -28,6 +28,11 @@ namespace LastFM.AspNetCore.Stats.Profiles
                 .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.Last()));
             CreateMap<AlbumModel, Album>()
                 .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.Last()));
+            CreateMap<AlbumWithTracksModel, Album>()
+                .ForMember(x => x.Image, m => m.MapFrom(o => o.Image.Last()))
+                .ForMember(x => x.Artist, m => m.MapFrom(o => new Artist() { Name = o.Artist }))
+                .ForMember(x => x.Tracks, m => m.MapFrom(o => o.Tracks.Tracks))
+                .ForMember(x => x.Tags, m => m.MapFrom(o => o.Tags.Tags));
         }
     }
 }

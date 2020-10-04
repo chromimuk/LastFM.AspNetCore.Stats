@@ -12,6 +12,7 @@ namespace LastFM.AspNetCore.Stats
     {
         private readonly ILastFMUserService _lastFMUserService;
         private readonly ILastFMArtistService _lastFMArtistService;
+        private readonly ILastFMAlbumService _lastFMAlbumService;
 
         public LastFMStatsController(LastFMCredentials credentials)
         {
@@ -21,11 +22,12 @@ namespace LastFM.AspNetCore.Stats
             LastFMServiceFactory lastFMServiceFactory = new LastFMServiceFactory(credentials);
             _lastFMUserService = lastFMServiceFactory.GetLastFMUserService();
             _lastFMArtistService = lastFMServiceFactory.GetLastFMArtistService();
+            _lastFMAlbumService = lastFMServiceFactory.GetLastFMAlbumService();
         }
 
         #region User
 
-        public Task<LastFMUser> GetUserInfos(string username)
+        public Task<LastFMUser> GetUserInfo(string username)
         {
             return _lastFMUserService.GetInfosAsync(username);
         }
@@ -59,7 +61,7 @@ namespace LastFM.AspNetCore.Stats
 
         #region Artist
 
-        public Task<Artist> GetArtistInfos(string searchedArtist)
+        public Task<Artist> GetArtistInfo(string searchedArtist)
         {
             return _lastFMArtistService.GetInfosAsync(searchedArtist);
         }
@@ -77,6 +79,15 @@ namespace LastFM.AspNetCore.Stats
         public Task<IEnumerable<Track>> GetArtistTopTracks(string searchedArtist, int limit = 10)
         {
             return _lastFMArtistService.GetTopTracksAsync(searchedArtist, limit);
+        }
+
+        #endregion
+
+        #region Album
+
+        public Task<Album> GetAlbumInfo(string artistName, string albumName)
+        {
+            return _lastFMAlbumService.GetInfoAsync(artistName, albumName);
         }
 
         #endregion

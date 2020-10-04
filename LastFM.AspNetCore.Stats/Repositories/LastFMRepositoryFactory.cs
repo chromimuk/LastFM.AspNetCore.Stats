@@ -25,5 +25,10 @@ namespace LastFM.AspNetCore.Stats.Repositories
         {
             return new ArtistRepository(_credentials, _mapper);
         }
+
+        public IAlbumRepository GetAlbumRepository()
+        {
+            return new AlbumRepository(_credentials, _mapper);
+        }
     }
 }

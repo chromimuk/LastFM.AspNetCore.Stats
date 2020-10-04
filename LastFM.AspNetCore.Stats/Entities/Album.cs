@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Entities
 {
@@ -13,6 +14,11 @@ namespace LastFM.AspNetCore.Stats.Entities
         public long Playcount { get; set; }
 
         public Uri Url { get; set; }
+
+        public List<Track> Tracks { get; set; }
+
+        public List<Tag> Tags { get; set; }
+
 
         public override string ToString()
         {

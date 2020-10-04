@@ -55,7 +55,7 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            LastFMUser user = await _controller.GetUserInfos("rj");
+            LastFMUser user = await _controller.GetUserInfo("rj");
 
             // Assert
             Assert.IsNotNull(user.Name);
@@ -133,7 +133,7 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Arrange
 
             // Act
-            Artist artist = await _controller.GetArtistInfos("Juniore");
+            Artist artist = await _controller.GetArtistInfo("Juniore");
 
             // Assert
             Assert.IsNotNull(artist);
@@ -176,6 +176,19 @@ namespace LastFM.AspNetCore.Testing.Controller
             // Assert
             Assert.IsNotNull(tracks);
             Assert.IsNotNull(tracks.First().Name);
+        }
+
+        [TestMethod]
+        public async Task LastFMStatsControllerTests_GetAlbumInfo()
+        {
+            // Arrange
+
+            // Act
+            Album album = await _controller.GetAlbumInfo("Juniore", "Un, deux, trois");
+
+            // Assert
+            Assert.IsNotNull(album);
+            Assert.IsNotNull(album.Name);
         }
     }
 }
