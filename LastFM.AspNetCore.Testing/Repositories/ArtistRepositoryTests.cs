@@ -24,12 +24,12 @@ namespace LastFM.AspNetCore.Testing.Repositories
         }
 
         [TestMethod]
-        public async Task ArtistRepositoryTests_GetInfosAsync()
+        public async Task ArtistRepositoryTests_GetInfoAsync()
         {
             // Arrange
 
             // Act
-            Artist artist = await _repo.GetInfosAsync("Juniore");
+            Artist artist = await _repo.GetInfoAsync("Juniore");
 
             // Assert
             Assert.IsNotNull(artist.Url);

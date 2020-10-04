@@ -16,7 +16,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
         {
         }
 
-        public async Task<Artist> GetInfosAsync(string searchedArtist)
+        public async Task<Artist> GetInfoAsync(string searchedArtist)
         {
             if (searchedArtist == null)
                 return null;

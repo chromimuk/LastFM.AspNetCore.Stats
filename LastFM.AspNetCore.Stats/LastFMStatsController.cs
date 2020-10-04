@@ -29,7 +29,7 @@ namespace LastFM.AspNetCore.Stats
 
         public Task<LastFMUser> GetUserInfo(string username)
         {
-            return _lastFMUserService.GetInfosAsync(username);
+            return _lastFMUserService.GetInfoAsync(username);
         }
 
         public Task<IEnumerable<Track>> GetUserLovedTracks(string username, int limit = 10)
@@ -63,7 +63,7 @@ namespace LastFM.AspNetCore.Stats
 
         public Task<Artist> GetArtistInfo(string searchedArtist)
         {
-            return _lastFMArtistService.GetInfosAsync(searchedArtist);
+            return _lastFMArtistService.GetInfoAsync(searchedArtist);
         }
 
         public Task<IEnumerable<Artist>> GetSimilarArtists(string searchedArtist, int limit = 10)

@@ -15,9 +15,9 @@ namespace LastFM.AspNetCore.Stats.Services
             _artistRepository = artistRepository;
         }
 
-        public async Task<Artist> GetInfosAsync(string username)
+        public async Task<Artist> GetInfoAsync(string username)
         {
-            return await _artistRepository.GetInfosAsync(username);
+            return await _artistRepository.GetInfoAsync(username);
         }
 
         public async Task<IEnumerable<Artist>> GetSimilarArtistsAsync(string searchedArtist, int limit = 10)

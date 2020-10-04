@@ -19,9 +19,9 @@ namespace LastFM.AspNetCore.Testing.Services
             Mock<IArtistRepository> artistRepository = new Mock<IArtistRepository>();
             artistRepository.SetupAllProperties();
 
-            // GetInfosAsync
+            // GetInfoAsync
             Artist artist = new Artist() { Name = "Juniore" };
-            artistRepository.Setup(x => x.GetInfosAsync("Juniore")).Returns(Task.FromResult(artist));
+            artistRepository.Setup(x => x.GetInfoAsync("Juniore")).Returns(Task.FromResult(artist));
 
             // GetSimilarArtistAsync
             IEnumerable<Artist> lovedTracks = new List<Artist>() { new Artist() { Name = "SimilarArtist" } };
@@ -39,12 +39,12 @@ namespace LastFM.AspNetCore.Testing.Services
         }
 
         [TestMethod]
-        public async Task LastFMArtistServiceTests_GetInfosAsync()
+        public async Task LastFMArtistServiceTests_GetInfoAsync()
         {
             // Arrange
 
             // Act
-            Artist user = await _service.GetInfosAsync("Juniore");
+            Artist user = await _service.GetInfoAsync("Juniore");
 
             // Assert
             Assert.IsNotNull(user.Name);

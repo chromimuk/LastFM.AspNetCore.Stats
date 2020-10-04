@@ -24,12 +24,12 @@ namespace LastFM.AspNetCore.Testing.Repositories
         }
 
         [TestMethod]
-        public async Task UserRepositoryTests_GetInfosAsync()
+        public async Task UserRepositoryTests_GetInfoAsync()
         {
             // Arrange
 
             // Act
-            LastFMUser user = await _repo.GetInfosAsync("chromimuk");
+            LastFMUser user = await _repo.GetInfoAsync("chromimuk");
 
             // Assert
             Assert.IsNotNull(user.Name);

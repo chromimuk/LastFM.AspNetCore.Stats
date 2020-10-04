@@ -6,7 +6,7 @@ namespace LastFM.AspNetCore.Stats.Services.Interfaces
 {
     internal interface ILastFMUserService
     {
-        Task<LastFMUser> GetInfosAsync(string username);
+        Task<LastFMUser> GetInfoAsync(string username);
 
         Task<IEnumerable<Track>> GetLovedTracksAsync(string username, int limit = 10);
 

@@ -6,7 +6,7 @@ namespace LastFM.AspNetCore.Stats.Repositories.Interfaces
 {
     internal interface IUserRepository
     {
-        Task<LastFMUser> GetInfosAsync(string username);
+        Task<LastFMUser> GetInfoAsync(string username);
 
         Task<IEnumerable<Track>> GetLovedTracksAsync(string username, int limit = 10);
 

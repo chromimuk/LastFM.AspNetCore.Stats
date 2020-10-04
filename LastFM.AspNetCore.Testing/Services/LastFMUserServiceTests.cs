@@ -20,9 +20,9 @@ namespace LastFM.AspNetCore.Testing.Services
             Mock<IUserRepository> userRepository = new Mock<IUserRepository>();
             userRepository.SetupAllProperties();
 
-            // GetInfosAsync
+            // GetInfoAsync
             LastFMUser lastFMUser = new LastFMUser() { Name = "RJ", Image = new Image(new Uri("http://chats.fr/cat.jpg")), Playcount = int.MaxValue, URL = "localhost" };
-            userRepository.Setup(x => x.GetInfosAsync("rj")).Returns(Task.FromResult(lastFMUser));
+            userRepository.Setup(x => x.GetInfoAsync("rj")).Returns(Task.FromResult(lastFMUser));
 
             // GetLovedTracksAsync
             IEnumerable<Track> lovedTracks = new List<Track>() { new Track() { Artist = new Artist() { Name = "LovedArtistName" }, Name = "LovedSongName" } };
@@ -48,12 +48,12 @@ namespace LastFM.AspNetCore.Testing.Services
         }
 
         [TestMethod]
-        public async Task LastFMUserServiceTests_GetInfosAsync()
+        public async Task LastFMUserServiceTests_GetInfoAsync()
         {
             // Arrange
 
             // Act
-            LastFMUser user = await _service.GetInfosAsync("rj");
+            LastFMUser user = await _service.GetInfoAsync("rj");
 
             // Assert
             Assert.IsNotNull(user.Name);
