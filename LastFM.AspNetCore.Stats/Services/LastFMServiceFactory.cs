@@ -4,7 +4,7 @@ using LastFM.AspNetCore.Stats.Utils;
 
 namespace LastFM.AspNetCore.Stats.Services
 {
-    public class LastFMServiceFactory
+    internal class LastFMServiceFactory
     {
         private readonly LastFMRepositoryFactory _repositoryFactory;
 

@@ -2,7 +2,7 @@
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class StatsModel
+    internal class StatsModel
     {
         [JsonProperty("listeners")]
         public long Listeners { get; set; }

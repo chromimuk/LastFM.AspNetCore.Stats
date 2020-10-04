@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace LastFM.AspNetCore.Stats.Utils
 {
-    public static class Converter
+    internal static class Converter
     {
         public static readonly JsonSerializerSettings Settings = new JsonSerializerSettings
         {

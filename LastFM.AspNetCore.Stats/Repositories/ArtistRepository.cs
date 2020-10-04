@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using LastFM.AspNetCore.Stats.Entities;
 using LastFM.AspNetCore.Stats.Exceptions;
+using LastFM.AspNetCore.Stats.Repositories.Interfaces;
 using LastFM.AspNetCore.Stats.Responses;
 using LastFM.AspNetCore.Stats.Responses.Artist;
 using LastFM.AspNetCore.Stats.Utils;
@@ -8,11 +9,7 @@ using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats.Repositories
 {
-    internal interface IArtistRepository
-    {
-    }
-
-    public class ArtistRepository : LastFMRepository, IArtistRepository
+    internal class ArtistRepository : LastFMRepository, IArtistRepository
     {
         public ArtistRepository(LastFMCredentials credentials, IMapper mapper) : base(credentials, mapper)
         {

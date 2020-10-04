@@ -3,7 +3,7 @@ using System;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class ImageModel
+    internal class ImageModel
     {
         [JsonProperty("size")]
         public string Size { get; set; }

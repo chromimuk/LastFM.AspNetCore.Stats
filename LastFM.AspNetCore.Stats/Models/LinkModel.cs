@@ -3,7 +3,7 @@ using System;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class LinkModel
+    internal class LinkModel
     {
         [JsonProperty("#text")]
         public string Text { get; set; }

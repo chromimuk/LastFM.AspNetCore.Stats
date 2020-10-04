@@ -5,7 +5,7 @@ using LastFM.AspNetCore.Stats.Utils;
 
 namespace LastFM.AspNetCore.Stats.Repositories
 {
-    public class LastFMRepositoryFactory
+    internal class LastFMRepositoryFactory
     {
         private readonly LastFMCredentials _credentials;
         private readonly IMapper _mapper;

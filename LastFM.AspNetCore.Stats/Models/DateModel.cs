@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public partial class DateModel
+    internal class DateModel
     {
         [JsonProperty("uts")]
         [JsonConverter(typeof(ParseStringConverter))]

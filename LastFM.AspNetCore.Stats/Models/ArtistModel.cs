@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class ArtistModel
+    internal class ArtistModel
     {
         [JsonProperty("url")]
         public Uri Url { get; set; }

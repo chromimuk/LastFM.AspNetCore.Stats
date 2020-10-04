@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public partial class AlbumModel
+    internal class AlbumModel
     {
         [JsonProperty("mbid")]
         public string Mbid { get; set; }

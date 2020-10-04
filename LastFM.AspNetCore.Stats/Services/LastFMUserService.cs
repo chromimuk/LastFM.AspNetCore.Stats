@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats.Services
 {
-    public class LastFMUserService : ILastFMUserService
+    internal class LastFMUserService : ILastFMUserService
     {
         private readonly IUserRepository _userRepository;
 

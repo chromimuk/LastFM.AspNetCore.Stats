@@ -2,7 +2,7 @@
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class AlbumAttrModel
+    internal class AlbumAttrModel
     {
         [JsonProperty("rank")]
         public long Rank { get; set; }

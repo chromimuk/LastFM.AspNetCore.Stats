@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats.Repositories
 {
-    public class LastFMResponse
+    internal class LastFMResponse
     {
         public bool IsSuccessful { get; set; }
 

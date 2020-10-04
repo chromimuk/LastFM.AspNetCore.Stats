@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats.Services.Interfaces
 {
-    public interface ILastFMUserService
+    internal interface ILastFMUserService
     {
         Task<LastFMUser> GetInfosAsync(string username);
 

@@ -2,7 +2,7 @@
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class LinkModelCollection
+    internal class LinkModelCollection
     {
         [JsonProperty("link")]
         public LinkModel Link { get; set; }

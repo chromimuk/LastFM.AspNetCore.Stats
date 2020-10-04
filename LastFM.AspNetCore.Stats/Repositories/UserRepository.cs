@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats.Repositories
 {
-    public class UserRepository : LastFMRepository, IUserRepository
+    internal class UserRepository : LastFMRepository, IUserRepository
     {
         public UserRepository(LastFMCredentials lastFMCredentials, IMapper mapper) : base(lastFMCredentials, mapper)
         {

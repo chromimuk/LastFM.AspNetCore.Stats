@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class RegisteredModel
+    internal class RegisteredModel
     {
         [JsonProperty("unixtime")]
         [JsonConverter(typeof(ParseStringConverter))]

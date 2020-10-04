@@ -2,7 +2,7 @@
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class BioModel
+    internal class BioModel
     {
         [JsonProperty("links")]
         public LinkModelCollection Links { get; set; }

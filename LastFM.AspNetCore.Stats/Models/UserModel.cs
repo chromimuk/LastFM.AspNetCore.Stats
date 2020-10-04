@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class UserModel
+    internal class UserModel
     {
         [JsonProperty("playlists")]
         [JsonConverter(typeof(ParseStringConverter))]

@@ -4,7 +4,7 @@ using System;
 
 namespace LastFM.AspNetCore.Stats.Utils
 {
-    public class ParseStringConverter : JsonConverter
+    internal class ParseStringConverter : JsonConverter
     {
         public override bool CanConvert(Type objectType) => objectType == typeof(long) || objectType == typeof(long?);
 

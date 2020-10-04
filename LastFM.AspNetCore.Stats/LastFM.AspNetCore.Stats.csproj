@@ -14,6 +14,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\netcoreapp3.1\LastFM.AspNetCore.Stats.AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\.editorconfig" Link=".editorconfig" />
     <None Include="..\LICENSE.txt">
       <Pack>True</Pack>
@@ -25,5 +29,5 @@
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
-
+  
 </Project>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LastFM.AspNetCore.Stats.Repositories
 {
-    public abstract class LastFMRepository
+    internal abstract class LastFMRepository
     {
         protected const string BaseAddress = "http://ws.audioscrobbler.com/2.0/";
 

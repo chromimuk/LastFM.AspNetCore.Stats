@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace LastFM.AspNetCore.Stats.Profiles
 {
-    public class LastFMProfile : Profile
+    internal class LastFMProfile : Profile
     {
         public LastFMProfile()
         {

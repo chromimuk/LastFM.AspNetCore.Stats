@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace LastFM.AspNetCore.Stats.Models
 {
-    public class AlbumModelCollection
+    internal class AlbumModelCollection
     {
         [JsonProperty("@attr")]
         public AttrModel Attr { get; set; }
