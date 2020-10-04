@@ -13,5 +13,10 @@ namespace LastFM.AspNetCore.Stats.Entities
         public long Playcount { get; set; }
 
         public Uri Url { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Artist} - {Name}";
+        }
     }
 }

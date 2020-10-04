@@ -13,5 +13,10 @@ namespace LastFM.AspNetCore.Stats.Entities
         public string Name { get; set; }
 
         public Album Album { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Artist} - {Name}";
+        }
     }
 }

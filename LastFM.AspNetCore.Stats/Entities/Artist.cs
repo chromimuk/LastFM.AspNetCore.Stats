@@ -22,5 +22,10 @@ namespace LastFM.AspNetCore.Stats.Entities
         public IEnumerable<Tag> Tags { get; set; }
 
         public Bio Bio { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }

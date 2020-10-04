@@ -7,5 +7,10 @@ namespace LastFM.AspNetCore.Stats.Entities
         public string Name { get; set; }
 
         public Uri Url { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name}";
+        }
     }
 }
