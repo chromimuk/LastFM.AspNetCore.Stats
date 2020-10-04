@@ -21,7 +21,7 @@ LastFMStatsService lastFMStatsService = new LastFMStatsService(LastFMCredentials
 ### User
 
 ```csharp
-Task<LastFMUser> LastFMUser = lastFMStatsService.GetUserInfos(username);
+Task<LastFMUser> LastFMUser = lastFMStatsService.GetUserInfo(username);
 Task<IEnumerable<Album>> TopAlbums = lastFMStatsService.GetUserTopAlbums(username);
 Task<IEnumerable<Artist>> TopArtists = lastFMStatsService.GetUserTopArtists(username);
 Task<IEnumerable<Track>> topTracks = lastFMStatsService.GetUserTopTracks(username);
@@ -32,8 +32,14 @@ Task<IEnumerable<Track>> recentTracks = lastFMStatsService.GetUserRecentTracks(u
 ### Artist
 
 ```csharp
-Task<Artist> artist = GetArtistInfos(searchedArtist);
+Task<Artist> artist = GetArtistInfo(searchedArtist);
 Task<IEnumerable<Artist>> similarArtists = GetSimilarArtists(searchedArtist);
 Task<IEnumerable<Album>> albums = GetArtistTopAlbums(searchedArtist);
 Task<IEnumerable<Track>> tracks = GetArtistTopTracks(searchedArtist);
+```
+
+### Album
+
+```csharp
+Task<Album> album = GetAlbumInfo(artistName, albumName);
 ```
