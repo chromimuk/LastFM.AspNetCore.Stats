@@ -51,7 +51,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
                 throw new DataAccessException($"Could not get loved tracks ({error.Message})");
             }
 
-            GetLovedTracksResponse response = GetLovedTracksResponse.FromJson(jsonString);
+            GetUserLovedTracksResponse response = GetUserLovedTracksResponse.FromJson(jsonString);
             IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(response.LovedTracks.Tracks);
             return tracks;
         }
@@ -71,7 +71,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
                 throw new DataAccessException($"Could not get recent tracks ({error.Message})");
             }
 
-            GetRecentTracksResponse response = GetRecentTracksResponse.FromJson(jsonString);
+            GetUserRecentTracksResponse response = GetUserRecentTracksResponse.FromJson(jsonString);
             IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(response.RecentTracks.Tracks);
             return tracks;
         }
@@ -91,7 +91,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
                 throw new DataAccessException($"Could not get top albums ({error.Message})");
             }
 
-            GetTopAlbumsResponse response = GetTopAlbumsResponse.FromJson(jsonString);
+            GetUserTopAlbumsResponse response = GetUserTopAlbumsResponse.FromJson(jsonString);
             IEnumerable<Album> albums = _mapper.Map<IEnumerable<Album>>(response.TopAlbums.Albums);
             return albums;
         }
@@ -111,7 +111,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
                 throw new DataAccessException($"Could not get top artists ({error.Message})");
             }
 
-            GetTopArtistsResponse response = GetTopArtistsResponse.FromJson(jsonString);
+            GetUserTopArtistsResponse response = GetUserTopArtistsResponse.FromJson(jsonString);
             IEnumerable<Artist> artists = _mapper.Map<IEnumerable<Artist>>(response.TopArtists.Artists);
             return artists;
         }
@@ -131,7 +131,7 @@ namespace LastFM.AspNetCore.Stats.Repositories
                 throw new DataAccessException($"Could not get top tracks ({error.Message})");
             }
 
-            GetTopTracksResponse response = GetTopTracksResponse.FromJson(jsonString);
+            GetUserTopTracksResponse response = GetUserTopTracksResponse.FromJson(jsonString);
             IEnumerable<Track> tracks = _mapper.Map<IEnumerable<Track>>(response.TopTracks.Tracks);
             return tracks;
         }
