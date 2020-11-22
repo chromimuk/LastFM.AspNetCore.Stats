@@ -25,21 +25,21 @@ Task<LastFMUser> LastFMUser = lastFMStatsService.GetUserInfo(username);
 Task<IEnumerable<Album>> TopAlbums = lastFMStatsService.GetUserTopAlbums(username);
 Task<IEnumerable<Artist>> TopArtists = lastFMStatsService.GetUserTopArtists(username);
 Task<IEnumerable<Track>> topTracks = lastFMStatsService.GetUserTopTracks(username);
-Task<IEnumerable<Track>> lovedTracks = astFMStatsService.GetUserLovedTracks(username);
+Task<IEnumerable<Track>> lovedTracks = lastFMStatsService.GetUserLovedTracks(username);
 Task<IEnumerable<Track>> recentTracks = lastFMStatsService.GetUserRecentTracks(username);
 ```
 
 ### Artist
 
 ```csharp
-Task<Artist> artist = GetArtistInfo(searchedArtist);
-Task<IEnumerable<Artist>> similarArtists = GetSimilarArtists(searchedArtist);
-Task<IEnumerable<Album>> albums = GetArtistTopAlbums(searchedArtist);
-Task<IEnumerable<Track>> tracks = GetArtistTopTracks(searchedArtist);
+Task<Artist> artist = lastFMStatsService.GetArtistInfo(searchedArtist);
+Task<IEnumerable<Artist>> similarArtists = lastFMStatsService.GetSimilarArtists(searchedArtist);
+Task<IEnumerable<Album>> albums = lastFMStatsService.GetArtistTopAlbums(searchedArtist);
+Task<IEnumerable<Track>> tracks = lastFMStatsService.GetArtistTopTracks(searchedArtist);
 ```
 
 ### Album
 
 ```csharp
-Task<Album> album = GetAlbumInfo(artistName, albumName);
+Task<Album> album = lastFMStatsService.GetAlbumInfo(artistName, albumName);
 ```
